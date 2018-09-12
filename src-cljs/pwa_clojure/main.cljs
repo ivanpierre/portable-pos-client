@@ -26,8 +26,11 @@
     (rum/mount (reactive-component) (get-container "container"))
     (rum/mount (components/main-navigation) (get-container "header-container"))))
 
-(defn ^:export start-cljs-app []
-  (navigation/move-to-page (get-current-path) load-app)
-  (make-progressive!))
+_ (defn ^:export start-cljs-app []
+    (navigation/move-to-page (get-current-path) load-app)
+    (make-progressive!))
+
+
+
 
 (start-cljs-app)
