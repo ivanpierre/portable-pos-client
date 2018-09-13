@@ -1,4 +1,4 @@
-(ns pwa-clojure.service-worker
+(ns pwa-clojure.src-svc.service-worker
   (:require [cemerick.url :as url]
             [pwa-clojure.routes :as routes]
             [bidi.bidi :as bidi]

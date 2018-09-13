@@ -21,8 +21,10 @@
   :cljsbuild
   {:builds [{:source-paths ["src-cljs"]
              :compiler {:output-to "resources/public/js/main.js"
+                        :output-dir "resources/public/js/compiled/out"
+                        :asset-path "js/compiled/out" ;; <--- relative URL of output-dir
                         :main pwa-clojure.main
-                        :optimizations :advanced
+                        :optimizations :none
                         :pretty-print true}}
             {:source-paths ["src-svc"]
              :compiler {:output-to "resources/public/service-worker.js"
