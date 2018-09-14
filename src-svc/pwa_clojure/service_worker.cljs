@@ -1,8 +1,5 @@
 (ns pwa-clojure.src-svc.service-worker
-  (:require [cemerick.url :as url]
-            [pwa-clojure.routes :as routes]
-            [bidi.bidi :as bidi]
-            [clojure.string :as str]))
+  (:require [clojure.string :as str]))
 
 (def app-cache-name "pwa-clojure-app")
 
@@ -51,8 +48,7 @@
 
 (defn- fetch-page-or-cached [path e]
   (cond
-    (bidi/match-route routes/pwa-routes path)
-    (return-shell e)
+    ;(bidi/match-route routes/pwa-routes path)(return-shell e)
 
     :else
     (fetch-cached (.-request e))))

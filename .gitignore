@@ -10,4 +10,4 @@ pom.xml.asc
 .hgignore
 .hg/
 /resources/public/service-worker.js
-/resources/public/js/main.js
+/resources/public/js/
