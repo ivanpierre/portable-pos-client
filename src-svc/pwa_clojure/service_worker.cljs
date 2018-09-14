@@ -1,5 +1,6 @@
 (ns pwa-clojure.src-svc.service-worker
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [cemerick.url :as url]))
 
 (def app-cache-name "pwa-clojure-app")
 

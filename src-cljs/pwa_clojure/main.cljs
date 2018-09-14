@@ -9,13 +9,18 @@
 
 (defn- make-progressive! []
   (when js/navigator.serviceWorker
-    (.register js/navigator.serviceWorker "/service-worker.js")))
+    (-> (.register js/navigator.serviceWorker "service-worker.js")
+        (.then (fn [reg]
+                 (.log js/console "reg ok " (.scope reg))))
+        (.catch (fn [error]
+                  (.log js/console "reg nok " error))))))
 
 (defonce app-loaded (atom false))
 (defn load-app []
   (when-not @app-loaded
     (reset! app-loaded true)
-    (main component)))
+    ;(main component)
+))
 
 (defn ^:export start-cljs-app []
   (load-app)
