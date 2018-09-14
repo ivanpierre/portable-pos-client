@@ -19,17 +19,26 @@
                                     "resources/public/js"]
 
   :cljsbuild
-  {:builds [{:source-paths ["src-cljs"]
+  {:builds [{:id "dev"
+             :source-paths ["src-cljs"]
              :compiler {:output-to "resources/public/js/main.js"
                         :output-dir "resources/public/js/compiled/out"
                         :asset-path "js/compiled/out" ;; <--- relative URL of output-dir
                         :main pwa-clojure.main
                         :optimizations :none
                         :pretty-print true}}
-            {:source-paths ["src-svc"]
+            {:id "prod"
+             :source-paths ["src-cljs"]
+             :compiler {:output-to "resources/public/js/main.js"
+                        :main pwa-clojure.main
+                        :optimizations :advanced
+                        :pretty-print false}}
+            {:id "gen"
+             :source-paths ["src-svc" "src-cljs"]
              :compiler {:output-to "resources/public/service-worker.js"
+                        ; We are in advanced compilation, so no compilations in ressources
                         :main pwa-clojure.service-worker
                         :optimizations :advanced
-                        :pretty-print true}}]}
+                        :pretty-print false}}]}
   :ring {:handler pwa-clojure.app/app
          :nrepl {:start? true}})
