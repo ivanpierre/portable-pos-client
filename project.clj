@@ -39,7 +39,7 @@
                               :pretty-print false}}
             :worker {:source-paths ["src-svc"]
                      :compiler {:output-to "resources/public/service-worker.js"
-                        ; We are in advanced compilation, so no compilations in ressources
+                                ; We are in advanced compilation, so no compilations in ressources
                                 :main pwa-clojure.service-worker
                                 :optimizations :advanced
                                 :pretty-print false}}}}
