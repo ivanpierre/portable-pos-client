@@ -18,9 +18,9 @@
 (defonce app-loaded (atom false))
 (defn load-app []
   (when-not @app-loaded
-    (reset! app-loaded true)
+    (reset! app-loaded true)))
     ;(main component)
-))
+
 
 (defn ^:export start-cljs-app []
   (load-app)

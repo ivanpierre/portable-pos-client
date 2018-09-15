@@ -32,11 +32,13 @@
                              :main pwa-clojure.main
                              :optimizations :none
                              :pretty-print true}}
+
             :prod {:source-paths ["src-cljs"]
                    :compiler {:output-to "resources/public/js/main.js"
                               :main pwa-clojure.main
                               :optimizations :advanced
                               :pretty-print false}}
+
             :worker {:source-paths ["src-svc"]
                      :compiler {:output-to "resources/public/service-worker.js"
                                 ; We are in advanced compilation, so no compilations in ressources
