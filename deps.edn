@@ -7,4 +7,4 @@
         bidi {:mvn/version "2.1.4"}
         cljs-ajax {:mvn/version "0.7.4"}}
  :aliases {:fig {:main-opts ["-m" "figwheel.main"]}}
- :paths ["src-clj" "src-cljs" "resources" "target"]}
+ :paths ["src-svc" "src-cljs" "resources" "target"]}

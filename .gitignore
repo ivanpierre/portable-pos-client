@@ -15,4 +15,7 @@ figwheel_server.log
 .cpcache
 target
 .lein-repl-history
+.rebel_readline_history
 figwheel_server.log
+figwheel-main.edn.old
+.rebel_readline_history

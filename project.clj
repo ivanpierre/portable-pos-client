@@ -1,8 +1,6 @@
 (defproject pwa-clojure "0.1.1-SNAPSHOT"
   :description "A simple example of to build a PWA app with clojurescript"
 
-  :source-paths ["src-clj"]
-
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.339"]
                  [bidi "2.1.4"]
@@ -26,21 +24,16 @@
   :clean-targets ^{:protect false} [:target-path :compile-path
                                     "resources/public/js"]
 
-  :main pwa-clojure.main
-
-  :ring {:handler pwa-clojure.app/app
-         :nrepl {:start? true}}
-
   ;:repl-options {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]} ;; <-- Note
 
   :cljsbuild
   {:builds {:dev
             {:source-paths ["src-cljs"]
              :watch-paths ["src-cljs"]
-             :figwheel {; :websocket-host "optiflex.ivanpierre.world"
-                        :load-warninged-code false
+             :figwheel {:load-warninged-code false
                         :on-jsload "pwa-clojure.main/fig-reload-hook"
-                        :websocket-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"}
+                        :websocket-host :js-client-host}
+                        ; :websocket-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"}
              :compiler {:output-to "resources/public/js/dev/main.js"
                         :output-dir "resources/public/js/dev"
                         :asset-path "js/dev" ;; <--- relative URL of output-dir
@@ -58,7 +51,7 @@
                         :pretty-print false}}
 
             :worker
-            {:source-paths ["src-svc" "src-cljs"]
+            {:source-paths ["src-svc"]
              :compiler {:output-to "resources/public/js/worker/service-worker.js"
                         :output-dir "resources/public/js/worker"
                         :asset-path "js/worker" ;; <--- relative URL of output-dir

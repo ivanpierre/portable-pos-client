@@ -1,6 +1,6 @@
 (ns pwa-clojure.navigation
   (:require [bidi.bidi :as bidi]
-            [pwa-clojure.pages :as pages]
+            ;[pwa-clojure.pages :as pages]
             [pwa-clojure.routes :as routes]
             [pwa-clojure.app-state :as app-state]
             [pwa-clojure.client.data :as data]))

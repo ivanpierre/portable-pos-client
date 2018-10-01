@@ -1,14 +1,11 @@
-# pwa-clojure
+# portable-pos-client
 
-This is a sample PWA app written in clojure + clojurescript.
+This is the client part of the portable pos application
 
-It currently uses
-
-* lein-cljsbuild
-* bidi
-* rum
+It works as a PWA/SPA and is targeted to be deployed on multiple Amazon types and on premices with various servers.
 
 ### More Info
 
-* This is currently deployed at https://progressive.staging.quintype.com
-* Slides available here: https://speakerdeck.com/gja/progressive-web-apps-in-clojure-script
+This is based on the (https://github.com/gja/pwa-clojure)[pwa-clojure] test application.
+
+The server side is in (https://github.com/ivanpierre/portable-pos-server)[portable-pos-servet]

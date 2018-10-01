@@ -1,7 +1,16 @@
 {:main pwa-clojure.main
- :connect-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"
- ;:websocket-host "optiflex.local"
- :websocket-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"
- :nrepl-host 0.0.0.0
- :nrepl-port  7888
- :ring-server-options {:host "optiflex.local"}}
+ ; :connect-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"
+ ; :websocket-host "optiflex.local"
+ ; :websocket-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"
+ :websocket-host :js-client-host
+ :websocket-port 3449
+ :http-server-root "public"
+ :css-dirs ["resources/public/css"]
+ :open-file-command "myfile-opener"
+ :nrepl-middleware ["cider.nrepl/cider-middleware"
+                    "refactor-nrepl.middleware/wrap-refactor"
+                    "cider.piggieback/wrap-cljs-repl"]
+
+ :nrepl-host "0.0.0.0"
+ :nrepl-port  7888}
+ ; :ring-server-options {:host "optiflex.local"}}
