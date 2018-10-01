@@ -1,0 +1,105 @@
+  #tl1 {
+    grid-area: tl1
+  }
+
+  #tl2 {
+    grid-area: tl2
+  }
+
+  #tl3 {
+    grid-area: tl3
+  }
+
+  #tdel {
+    grid-area: tEFF
+  }
+
+  #tc1 {
+    grid-area: tc1
+  }
+
+  #tc2 {
+    grid-area: tc2
+  }
+
+  #tc3 {
+    grid-area: tc3
+  }
+
+  #tc4 {
+    grid-area: tc4
+  }
+
+  #tc5 {
+    grid-area: tc5
+  }
+
+  #tn1 {
+    grid-area: tn1
+  }
+
+  #tn2 {
+    grid-area: tn2
+  }
+
+  #tn3 {
+    grid-area: tn3
+  }
+
+  #tn4 {
+    grid-area: tn4
+  }
+
+  #tn5 {
+    grid-area: tn5
+  }
+
+  #tn6 {
+    grid-area: tn6
+  }
+
+  #tn7 {
+    grid-area: tn7
+  }
+
+  #tn8 {
+    grid-area: tn8
+  }
+
+  #tn9 {
+    grid-area: tn9
+  }
+
+  #tn0 {
+    grid-area: tn0
+  }
+
+  #tr1 {
+    grid-area: tr1
+  }
+
+  #tr2 {
+    grid-area: tr2
+  }
+
+  #tENT {
+    grid-area: tENT
+  }
+
+  #tpoint {
+    grid-area: tpoint
+  }
+
+  .numpad {
+    display: grid;
+    /* The rows, columns and areas of the grid are defined visually
+     * using the grid-template-areas property.  Each string is a row,
+     * and each word an area.  The number of words in a string
+     * determines the number of columns. Note the number of words
+     * in each string must be identical. */
+    grid-template-areas: "tc1 tl1 tl2 tl3    tEFF" "tc2 tn1  tn2  tn3     tr1" "tc3 tn4  tn5  tn6     tr2" "tc4 tn7  tn8  tn9     tENT" "tc5 tn0  tn0  tpoint tENT";
+    /* The way to size columns and rows can be assigned with the
+     * grid-template-columns and grid-template-rows properties. */
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+  }

@@ -1,0 +1,29 @@
+  #article {
+      grid-area: article
+  }
+
+  #courant {
+      grid-area: courant
+  }
+
+  #ticket {
+      grid-area: ticket
+  }
+
+  #numpad {
+      grid-area: numpad
+  }
+
+  #ventes {
+      display: grid;
+      /* The rows, columns and areas of the grid are defined visually
+       * using the grid-template-areas property.  Each string is a row,
+       * and each word an area.  The number of words in a string
+       * determines the number of columns. Note the number of words
+       * in each string must be identical. */
+      grid-template-areas: "articles ticket" "article courant" "article numpad";
+      /* The way to size columns and rows can be assigned with the
+       * grid-template-columns and grid-template-rows properties. */
+      grid-template-columns: 60px 40px;
+      grid-template-rows: 33px 33px 33px;
+  }
