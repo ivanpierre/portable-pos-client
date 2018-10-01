@@ -1,0 +1,7 @@
+{:main pwa-clojure.main
+ :connect-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"
+ ;:websocket-host "optiflex.local"
+ :websocket-url "ws://optiflex.ivanpierre.world:3449/figwheel-ws"
+ :nrepl-host 0.0.0.0
+ :nrepl-port  7888
+ :ring-server-options {:host "optiflex.local"}}

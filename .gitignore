@@ -10,4 +10,9 @@ pom.xml.asc
 .hgignore
 .hg/
 /resources/public/service-worker.js
-/resources/public/js/*
+/resources/public/js
+figwheel_server.log
+.cpcache
+target
+.lein-repl-history
+figwheel_server.log

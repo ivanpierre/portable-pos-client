@@ -1,13 +1,14 @@
 FROM clojure
 
-RUN mkdir -p /app
+WORKDIR /clj
+ADD . /clj
+VOLUME /clj
 
-WORKDIR /app
+# 3449 is default http and websocket port that figwheel uses to communicate
+EXPOSE 3449
+# 7888 is the default nrepl port
+EXPOSE 7888
 
-COPY project.clj /app
 RUN lein deps
-
-COPY . /app
-
-RUN lein cljsbuild once
-CMD ["lein", "run"]
+RUN lein cljsbuild once dev worker
+CMD lein figwheel dev

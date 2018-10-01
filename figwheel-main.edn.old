@@ -1,0 +1,70 @@
+;; Main figwheel config
+
+{:http-server-root "public" ;; this will be in resources/
+ :server-port 5000          ;; default is 3449
+ :server-ip   "0.0.0.0"     ;; default is "localhost"
+
+     ;; CSS reloading (optional)
+     ;; :css-dirs has no default value
+     ;; if :css-dirs is set figwheel will detect css file changes and
+     ;; send them to the browser
+ :css-dirs ["resources/public/css"]
+
+     ;; A list of ClojureScript source directories to be watched and compiled on change.
+
+     ;; The directories in :watch-dirs are passed to the compiler as source directories.
+     ;; For this reason, any entry in the watch directories must be on the classpath
+     ;; and must point to the root directory of a ClojureScript namespace source tree.}
+
+     ;; I.E. If your example.core namespace is located at src/cljs/example/core.cljs
+     ;; you cannot use src as an element of :watch-dirs, you must use the path
+     ;; to the root directory of the namespace tree src/cljs.
+ :watch-dirs ["src-cljs" "src-clj"]
+
+     ;; Server Ring Handler (optional)
+     ;; if you want to embed a ring handler into the figwheel http-kit
+     ;; server
+     ;; :ring-handler pwa-clojure.app/app
+
+     ;; Clojure Macro reloading
+     ;; disable clj file reloading
+     ; :reload-clj-files false
+     ;; or specify which suffixes will cause the reloading
+     ; :reload-clj-files {:clj true :cljc false}
+
+     ;; To be able to open files in your editor from the heads up display
+     ;; you will need to put a script on your path.
+     ;; that script will have to take a file path, a line number and a column
+     ;; ie. in  ~/bin/myfile-opener
+     ;; #! /bin/sh
+     ;; emacsclient -n +$2:$3 $1
+     ;;
+ :open-file-command "myfile-opener"
+
+     ;; if you want to disable the REPL
+     ;; :repl false
+
+     ;; Print to console
+ :client-print-to :console
+
+     ;; to configure a different figwheel logfile path
+     ;; :server-logfile "tmp/logs/figwheel-logfile.log"
+
+     ;; Start an nREPL server into the running figwheel process
+ :nrepl-port 6000
+
+ :connect-url "ws://optiflex.local/figwheel-connect"
+
+     ;; Load CIDER, refactor-nrepl and piggieback middleware
+ :nrepl-middleware ["cider.nrepl/cider-middleware"
+                    "refactor-nrepl.middleware/wrap-refactor"
+                    "cider.piggieback/wrap-cljs-repl"]}
+
+     ;; if you need to watch files with polling instead of FS events
+     ;; :hawk-options {:watcher :polling}
+     ;; ^ this can be useful in Docker environments
+
+     ;; if your project.clj contains conflicting builds,
+     ;; you can choose to only load the builds specified
+     ;; on the command line
+     ;; :load-all-builds false ; default is true
