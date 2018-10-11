@@ -7,6 +7,7 @@
                  [hiccup "1.0.5"]
                  [cheshire "5.8.1"]
                  [ring "1.7.0"]
+                 [ring/ring-jetty-adapter "1.6.3"]
                  [clj-http "3.9.1"]
                  [com.cemerick/url "0.1.1"]
                  [cljs-ajax "0.7.4"]
@@ -28,8 +29,8 @@
 
   :cljsbuild
   {:builds {:dev
-            {:source-paths ["src-cljs"]
-             :watch-paths ["src-cljs"]
+            {:source-paths ["src/src-cljs"]
+             :watch-paths ["src/src-cljs"]
              :figwheel {:load-warninged-code false
                         :on-jsload "pwa-clojure.main/fig-reload-hook"
                         :websocket-host :js-client-host}
@@ -42,7 +43,7 @@
                         :pretty-print true}}
 
             :prod
-            {:source-paths ["src-cljs"]
+            {:source-paths ["src/src-cljs"]
              :compiler {:output-to "resources/public/js/prod/main.js"
                         :output-dir "resources/public/js/prod"
                         :asset-path "js/prod" ;; <--- relative URL of output-dir
@@ -51,7 +52,7 @@
                         :pretty-print false}}
 
             :worker
-            {:source-paths ["src-svc"]
+            {:source-paths ["src/src-svc"]
              :compiler {:output-to "resources/public/js/worker/service-worker.js"
                         :output-dir "resources/public/js/worker"
                         :asset-path "js/worker" ;; <--- relative URL of output-dir
@@ -62,10 +63,10 @@
   ;; Main figwheel config
   :figwheel
    {:http-server-root "public" ;; this will be in resources/
-                ; :server-ip   "0.0.0.0"     ;; default is "localhost"
+    ; :server-ip   "localhost"     ;; default is "localhost"
     ; :websocket-host "optiflex.ivanpierre.world"
 
-                ; :nrepl-host  "0.0.0.0"
+    ; :nrepl-host  "0.0.0.0"
     :nrepl-port  7888
 
                 ;; CSS reloading (optional)

@@ -1,0 +1,15 @@
+FROM clojure
+
+WORKDIR /clj
+ADD . /clj
+VOLUME /clj
+
+# 3000 is default http and websocket port jetty uses to communicate
+EXPOSE 3000
+
+EXPOSE 23
+
+# Compile and Launch client appli
+RUN lein clean
+RUN lein cljsbuild once prod worker
+CMD lein ring server

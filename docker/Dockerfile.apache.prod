@@ -1,0 +1,28 @@
+FROM clojure
+
+WORKDIR /clj
+ADD . /clj
+VOLUME /clj
+
+# 3449 is default http and websocket port that figwheel uses to communicate
+EXPOSE 80 
+
+EXPOSE 23
+
+# add Apache server
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
+RUN apt-get install apache2 -y
+RUN service apache2 start
+
+RUN apt-get install lynx -y
+
+# Compile and Launch client appli
+RUN lein clean
+RUN lein cljsbuild once prod worker
+
+# copy site code to http
+RUN cp -r resources/public/* /var/www/
+
+

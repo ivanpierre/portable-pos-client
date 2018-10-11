@@ -22,5 +22,5 @@
 (defn render-component [component id]
   (r/render component (.getElementById js/document id)))
 
-(defn render-vente []
+(defn ^:export render-vente []
   (render-component [Vente map-vente] "app"))

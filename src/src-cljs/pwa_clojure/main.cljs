@@ -1,6 +1,6 @@
 (ns pwa-clojure.main
   (:require [reagent.core :as r]
-            [pwa-clojure.components.vente :refer [render-vente]]
+            ; [pwa-clojure.components.vente :refer [render-vente]]
             [pwa-clojure.app-state :refer [app-state]]))
 
 (defn- make-progressive! []
@@ -24,4 +24,6 @@
   (swap! app-state update-in [:__figwheel_counter] inc))
 
 ; (js/console.log "loading main.cljs")
-; (start-cljs-app)
+; (start-cljs-app))
+
+
