@@ -2,16 +2,11 @@
   (:require
     [ring.middleware.content-type :refer :all]
     [ring.middleware.resource :refer :all]
-    [ring.middleware.not-modified :refer :all]))
-;    [ring.util.response :refer :all]))
-
-(defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Hello World"})
+    [ring.middleware.not-modified :refer :all]
+    [ring.util.response :refer :all]))
 
 (def app
-   (-> handler
+   (-> (response "Page non trouvée")
        (wrap-resource "public")
        wrap-content-type
        wrap-not-modified))
