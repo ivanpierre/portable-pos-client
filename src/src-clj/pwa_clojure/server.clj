@@ -1,12 +1,19 @@
 (ns pwa-clojure.server
   (:require
-    [ring.middleware.content-type :refer [warp-content-type]]
-    [ring.middleware.resource :refer [warp-resource]]
-    [ring.middleware.not-modified :refer [warp-not-modified]]
-    [ring.util.response :as [response]]))
+    [ring.middleware.content-type :refer :all]
+    [ring.middleware.resource :refer :all]
+    [ring.middleware.not-modified :refer :all]))
+;    [ring.util.response :refer :all]))
+
+(defn handler [request]
+  {:status 200
+   :headers {"Content-Type" "text/html"}
+   :body "Hello World"})
 
 (def app
-  (-> (response "Original not changed")
-      (warp-resource "public")
-      warp-content-type
-      warp-not-modified))
+   (-> handler
+       (wrap-resource "public")
+       wrap-content-type
+       wrap-not-modified))
+
+; (defn main [] (println "coucou"))

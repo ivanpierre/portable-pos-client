@@ -1,16 +1,16 @@
 (defproject pwa-clojure "0.1.1-SNAPSHOT"
   :description "A simple example of to build a PWA app with clojurescript"
 
-  :dependencies [[org.clojure/clojure "1.9.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.10.339"]
                  [bidi "2.1.4"]
                  [hiccup "1.0.5"]
                  [cheshire "5.8.1"]
                  [javax.servlet/servlet-api "2.5"]
-                 [ring "1.7.0"]
-                 ; [ring/ring-core "1.7.0"]
-                 ; [ring/ring-devel "1.7.0"]
-                 ; [ring/ring-jetty-adapter "1.7.0"]
+                 ; [ring "1.7.0" :exclusions [[org.clojure/clojure]]]
+                 [ring/ring-core "1.7.0"]
+                 [ring/ring-devel "1.7.0"]
+                 [ring/ring-jetty-adapter "1.7.0"]
                  ; [clj-http "3.9.1"]
                  [com.cemerick/url "0.1.1"]
                  [cljs-ajax "0.7.4"]
@@ -26,7 +26,7 @@
             [lein-figwheel "0.5.16"]]
 
   :source-paths ["src/src-clj"]
-  ; :main pwa-clojure.server
+  :main pwa-clojure.server/main
   :ring {:handler pwa-clojure.server/app}
 
   :clean-targets ^{:protect false} [:target-path :compile-path
