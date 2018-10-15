@@ -13,7 +13,7 @@
   [["Articles" :articles "Articles"]
    ["Ticket" :ticket "Ticket"]
    ["Courant" :courant "Articles"]
-   [numpad/Numpad :numpad numpad/map-default]])
+   [numpad/numpad :numpad numpad/map-float]])
 
 (defn Vente [map-pattern]
   [:div#main.vente
