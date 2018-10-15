@@ -12,7 +12,9 @@
              :handler callback}))
 
 (defn- response->clj [response]
-  (-> response .json (.then #(js->clj % :keywordize-keys true))))
+  (-> response
+      .json
+      (.then #(js->clj % :keywordize-keys true))))
 
 (defn- cache-response [route response]
   (js/console.log "Caching Data" route)

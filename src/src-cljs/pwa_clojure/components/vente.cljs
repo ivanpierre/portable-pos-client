@@ -16,7 +16,7 @@
    [numpad/Numpad :numpad numpad/map-default]])
 
 (defn Vente [map-pattern]
-  [:div#vente
+  [:div#main.vente
    (map #(apply Composant %) map-pattern)])
 
 (defn render-component [component id]
