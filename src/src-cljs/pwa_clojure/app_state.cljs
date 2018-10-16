@@ -12,11 +12,5 @@
 ;;   2.  `events.cljs` for the registration of :initialise-db handler
 ;;
 
-(def default-db           ;; what gets put into app-db by default.
-  {:server  nil           ;; Server infos
-   :pos nil               ;; Pos infos
-   :cashier nil           ;; cashier infos
-   :module nil})          ;; current module
-
 ;; Current state
-(def ^:export app-state (atom nil))
+(def ^:export app-db (atom nil))
