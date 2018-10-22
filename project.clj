@@ -1,7 +1,7 @@
 (defproject pwa-clojure "0.1.1-SNAPSHOT"
   :description "A simple example of to build a PWA app with clojurescript"
 
-  :dependencies [[org.clojure/clojure "1.8.0"]
+  :dependencies [[org.clojure/clojure "1.10.0-beta1"]
                  [org.clojure/clojurescript "1.10.339"]
                  [bidi "2.1.4"]
                  [hiccup "1.0.5"]
@@ -16,9 +16,11 @@
                  [cljs-ajax "0.7.4"]
                  [reagent "0.8.1"]
                  [re-frame "0.10.6"]
+                 [re-frisk "0.5.3"]
                  [com.bhauman/rebel-readline "0.1.4"]
                  [figwheel-sidecar "0.5.16"]
                  [cider/piggieback "0.3.9"]
+                 [cider/cider-nrepl "0.18.0"]
                  [refactor-nrepl "2.4.0"]]
 
   :plugins [[lein-cljsbuild "1.1.4"]
@@ -46,6 +48,7 @@
                         :output-dir "resources/public/js/dev"
                         :asset-path "js/dev" ;; <--- relative URL of output-dir
                         :main pwa-clojure.main
+                        :preloads [re-frisk.preload]
                         :optimizations :none
                         :pretty-print true}}
 
@@ -54,7 +57,7 @@
              :compiler {:output-to "resources/public/js/prod/main.js"
                         :output-dir "resources/public/js/prod"
                         :asset-path "js/prod" ;; <--- relative URL of output-dir
-                        :main pwa-clojure.main
+                        :main pwa-clojure.main/main
                         :optimizations :advanced
                         :pretty-print false}}
 
@@ -130,8 +133,8 @@
 
                 ;; Load CIDER, refactor-nrepl and piggieback middleware
     :nrepl-middleware ["cider.nrepl/cider-middleware"
-                        "refactor-nrepl.middleware/wrap-refactor"
-                        "cider.piggieback/wrap-cljs-repl"]})
+                       "refactor-nrepl.middleware/wrap-refactor"
+                       "cider.piggieback/wrap-cljs-repl"]})
 
                 ;; if you need to watch files with polling instead of FS events
                 ;; :hawk-options {:watcher :polling}

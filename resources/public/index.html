@@ -19,8 +19,13 @@
 
 <body>
     <div id="app"></div>
-    <script>console.log(Date());</script>
     <script src="/js/dev/main.js" type="text/javascript"></script>
+    <script>
+        console.log(Date());
+        window.onload = function() {;;
+            pwa_clojure.main.main();;;
+        }
+    </script>
 </body>
 
 </html>
